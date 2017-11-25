@@ -2,6 +2,7 @@
 #include <string>  
 #include <ctime>  
 #include <vector>  
+#include <thread>
 using namespace std;
 
 bool isPrime_2(int num)
@@ -34,24 +35,30 @@ bool isPrime_3(int num)
 	return 1;
 }
 
-int main()
+bool isPrime_4(int num, vector<int>& primeV)
 {
-	int test_num = 10000 * 100;
+	return 1;
+}
+
+void testBench(int circles)
+{
+	//int test_num = 10000 * 1000;
+	int test_num = circles;
 	int tstart, tstop; //分别记录起始和结束时间  
 					   //测试第一个判断质数函数  
-	//tstart = clock();
-	//for (int i = 1; i <= test_num; i++)
-	//	isPrime_1(i);
-	//tstop = clock();
-	//cout << "方法(1)时间(ms):" << tstop - tstart << endl;//ms为单位  
-													 
-	//测试第二个判断质数函数  
+					   //tstart = clock();
+					   //for (int i = 1; i <= test_num; i++)
+					   //	isPrime_1(i);
+					   //tstop = clock();
+					   //cout << "方法(1)时间(ms):" << tstop - tstart << endl;//ms为单位  
+
+					   //测试第二个判断质数函数  
 	tstart = clock();
 	bool rst;
 	for (int i = 1; i <= test_num; i++) {
-		 rst = isPrime_2(i);
+		rst = isPrime_2(i);
 	}
-	
+
 	tstop = clock();
 	cout << "方法(2)时间(ms):" << tstop - tstart << endl;
 	//测试第三个判断质数函数  
@@ -61,7 +68,44 @@ int main()
 	}
 	tstop = clock();
 	cout << "方法(3)时间(ms):" << tstop - tstart << endl;
-	cout << endl;
-	//system("pause");
+	//cout << endl;
+}
+
+int main()
+{
+	int test_num = 10000 * 500;
+	vector<thread> thrdV;
+	for (size_t i = 0; i < 4; i++)
+		thrdV.push_back(thread(testBench, test_num));
+
+	for (auto& thread : thrdV)
+		thread.join();
+	//testBench(test_num);
+	//int tstart, tstop; //分别记录起始和结束时间  
+	//				   //测试第一个判断质数函数  
+	////tstart = clock();
+	////for (int i = 1; i <= test_num; i++)
+	////	isPrime_1(i);
+	////tstop = clock();
+	////cout << "方法(1)时间(ms):" << tstop - tstart << endl;//ms为单位  
+	//												 
+	////测试第二个判断质数函数  
+	//tstart = clock();
+	//bool rst;
+	//for (int i = 1; i <= test_num; i++) {
+	//	 rst = isPrime_2(i);
+	//}
+	//
+	//tstop = clock();
+	//cout << "方法(2)时间(ms):" << tstop - tstart << endl;
+	////测试第三个判断质数函数  
+	//tstart = clock();
+	//for (int i = 1; i <= test_num; i++) {
+	//	rst = isPrime_3(i);
+	//}
+	//tstop = clock();
+	//cout << "方法(3)时间(ms):" << tstop - tstart << endl;
+	//cout << endl;
+	////system("pause");
 	return 0;
 }
