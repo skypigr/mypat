@@ -21,12 +21,13 @@ int main()
 	cin >> nom >> dom;	
 
 	// delete the zeros in the front of the nom
-	for (size_t i = 0; i < nom.length(); i++)
-	{
-		if (nom[i] == '0') continue;
-		nom.erase(0, i);
-		break;
-	}
+	// ps: if the zero-check of rst is necessary, the zero-check of the nom is not necessary, so we cut it off;
+	//for (size_t i = 0; i < nom.length(); i++)
+	//{
+	//	if (nom[i] == '0') continue;
+	//	nom.erase(0, i);
+	//	break;
+	//}
 
 	char rst[1001];
 	memset(rst, 0, 1001);
