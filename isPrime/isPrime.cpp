@@ -80,32 +80,6 @@ int main()
 
 	for (auto& thread : thrdV)
 		thread.join();
-	//testBench(test_num);
-	//int tstart, tstop; //分别记录起始和结束时间  
-	//				   //测试第一个判断质数函数  
-	////tstart = clock();
-	////for (int i = 1; i <= test_num; i++)
-	////	isPrime_1(i);
-	////tstop = clock();
-	////cout << "方法(1)时间(ms):" << tstop - tstart << endl;//ms为单位  
-	//												 
-	////测试第二个判断质数函数  
-	//tstart = clock();
-	//bool rst;
-	//for (int i = 1; i <= test_num; i++) {
-	//	 rst = isPrime_2(i);
-	//}
-	//
-	//tstop = clock();
-	//cout << "方法(2)时间(ms):" << tstop - tstart << endl;
-	////测试第三个判断质数函数  
-	//tstart = clock();
-	//for (int i = 1; i <= test_num; i++) {
-	//	rst = isPrime_3(i);
-	//}
-	//tstop = clock();
-	//cout << "方法(3)时间(ms):" << tstop - tstart << endl;
-	//cout << endl;
-	////system("pause");
+
 	return 0;
 }
