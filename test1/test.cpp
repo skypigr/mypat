@@ -18,7 +18,7 @@ void printBin(int C, int D)
 
 /*
 另一个水友的答案，也很机智，把每次产生的字数放在string的最前面
-因为结果用string保存，因此支持任意进制
+只支持10进制，因为9后面的字幕是:;<=>?@A,也不符合16进制规范，没有对大于10进制进行处理
 链接：https://www.nowcoder.com/questionTerminal/52fee0e0ffc44d258b8f940184017c00
 来源：牛客网
 */
